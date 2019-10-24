@@ -101,7 +101,7 @@ let myGameArea = {
 
   function updateObstacles() {
     for (i = 0; i < myObstacles.length; i++) {
-        myObstacles[i].y += -3;
+        myObstacles[i].y += 3;
         myObstacles[i].update();
       }
 
@@ -109,18 +109,19 @@ let myGameArea = {
     myGameArea.frames += 1;
     if (myGameArea.frames % 60 === 0) {
       let x = myGameArea.canvas.width;
-      let y = myGameArea.canvas.height;
+      let y = 0;
       let minWidth = 20;
       let maxWidth = 200;
+      let randomGap = Math.floor(Math.random()*350)+1
       let width = Math.floor(
-        Math.random() * (maxWidth - minWidth + 1) + minWidth
+        Math.random() * (maxWidth - minWidth + 1) + minWidth+randomGap
       );
-      var minGap = 70;
-      var maxGap = 200;
-      var gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+      let minGap = 70;
+      let maxGap = 200;
+      let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
       myObstacles.push(new Component(width, 10, "green", 0, y));
       myObstacles.push(
-        new Component(y-width-gap, 10, "green", width+gap, y)
+        new Component(x-width-gap, 10, "green", width+gap, y)
       );
     }
   }
@@ -141,4 +142,4 @@ let myGameArea = {
   };
 
 myGameArea.start();
-let player = new Component(30, 30, "red", 0, 110);
+let player = new Component(30, 30, "red", 350, 410);
