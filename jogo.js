@@ -10,6 +10,11 @@ let myGameArea = {
       this.canvas.classList.add('canvasBg');
       document.body.insertBefore(this.canvas, document.body.childNodes[0]);
       this.interval = setInterval(updateGameArea, 20);
+      let background = new Image();
+      background.src = "./cave.jpg";
+      background.onload = function() {
+        ctx.drawImage(background, 0, 0);
+      }
     },
     clear: function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -18,7 +23,7 @@ let myGameArea = {
         clearInterval(this.interval);
     },
     score: function() {
-        var points = Math.floor(this.frames / 5);
+        let points = Math.floor(this.frames / 5);
         this.context.font = "18px serif";
         this.context.fillStyle = "black";
         this.context.fillText("Score: " + points, 350, 50);
@@ -35,7 +40,25 @@ let myGameArea = {
       this.y = y;
       this.speedX = 0;
       this.speedY = 0;
+      //this.obsHeight = obsHeight;
+      //this.obsWidth = obsWidth;
+      
     }
+
+    renderPlayer() {
+      let img = new Image();
+      img.src = "./imagens/Idle__001.png";
+      let ctx = myGameArea.context;
+      ctx.drawImage(img, this.x, this.y, 40, 40);
+    }
+/*
+    renderObs() {
+      let img = new Image();
+      img.src = "./stone1.png";
+      let ctx = myGameArea.context;
+        ctx.drawImage(img, this.x, this.y, 250, 100); 
+    }
+*/
   
     update() {
       let ctx = myGameArea.context;
@@ -105,9 +128,8 @@ let myGameArea = {
         myObstacles[i].update();
       }
 
-
     myGameArea.frames += 1;
-    if (myGameArea.frames % 60 === 0) {
+    if (myGameArea.frames % 70 === 0) {
       let x = myGameArea.canvas.width;
       let y = 0;
       let minWidth = 20;
@@ -117,12 +139,18 @@ let myGameArea = {
         Math.random() * (maxWidth - minWidth + 1) + minWidth+randomGap
       );
       let minGap = 70;
-      let maxGap = 200;
+      let maxGap = 150;
       let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+      /*
+      let obs = new Image();
+      obs.src = "./rock.jpg";
+      ctx.drawImage(obs, 0, y, width, 10);
+      ctx.drawImage(obs, width+gap, y, x-width-gap, 10);
+      */
       myObstacles.push(new Component(width, 10, "green", 0, y));
       myObstacles.push(
         new Component(x-width-gap, 10, "green", width+gap, y)
-      );
+        );
     }
   }
 
@@ -135,11 +163,11 @@ let myGameArea = {
   function updateGameArea() {
     myGameArea.clear();
     player.newPos();
-    player.update();
+    player.renderPlayer();
     updateObstacles();
     checkGameOver();
     myGameArea.score();
   };
 
 myGameArea.start();
-let player = new Component(30, 30, "red", 350, 410);
+let player = new Component(40, 40, "red", 350, 310);
