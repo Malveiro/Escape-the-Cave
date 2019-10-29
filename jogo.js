@@ -10,11 +10,7 @@ let myGameArea = {
       this.canvas.classList.add('canvasBg');
       document.body.insertBefore(this.canvas, document.body.childNodes[0]);
       this.interval = setInterval(updateGameArea, 20);
-      let background = new Image();
-      background.src = "./cave.jpg";
-      background.onload = function() {
-        ctx.drawImage(background, 0, 0);
-      }
+      
     },
     clear: function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -47,9 +43,9 @@ let myGameArea = {
 
     renderPlayer() {
       let img = new Image();
-      img.src = "./imagens/Idle__001.png";
+      img.src = "./imagens/Run__001.png";
       let ctx = myGameArea.context;
-      ctx.drawImage(img, this.x, this.y, 40, 40);
+      ctx.drawImage(img, this.x, this.y, 50, 70);
     }
 /*
     renderObs() {
@@ -170,4 +166,4 @@ let myGameArea = {
   };
 
 myGameArea.start();
-let player = new Component(40, 40, "red", 350, 310);
+let player = new Component(40, 40, "red", 350, 400);
