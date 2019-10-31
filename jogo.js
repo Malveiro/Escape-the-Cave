@@ -1,11 +1,14 @@
 let myObstacles = [];
 
+let startBtn = document.getElementById("startBtn");
+
 let myGameArea = {
     canvas: document.createElement("canvas"),
     frames: 0,
     start: function() {
       this.canvas.width = 700;
       this.canvas.height = 500;
+      this.points = 0;
       this.context = this.canvas.getContext("2d");
       this.canvas.classList.add('canvasBg');
       document.body.insertBefore(this.canvas, document.body.childNodes[0]);
@@ -16,13 +19,14 @@ let myGameArea = {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
     stop: function() {
-        clearInterval(this.interval);
+      clearInterval(this.interval); 
     },
     score: function() {
-        let points = Math.floor(this.frames / 5);
+        this.points = Math.floor(this.frames / 5);
         this.context.font = "18px serif";
         this.context.fillStyle = "black";
-        this.context.fillText("Score: " + points, 350, 50);
+        this.context.fillText("Score: " + this.points, 350, 50);
+        console.log(this.points);
     }
   }
 
@@ -37,7 +41,7 @@ let myGameArea = {
       this.speedX = 0;
       this.speedY = 0;
       //this.obsHeight = obsHeight;
-      //this.obsWidth = obsWidth;
+      // this.obsWidth = obsWidth;
       
     }
 
@@ -52,7 +56,7 @@ let myGameArea = {
       let img = new Image();
       img.src = "./stone1.png";
       let ctx = myGameArea.context;
-        ctx.drawImage(img, this.x, this.y, 250, 100); 
+      ctx.drawImage(img, this.x, this.y, 250, 100); 
     }
 */
   
@@ -87,8 +91,8 @@ let myGameArea = {
           this.right() < obstacle.left() ||
           this.left() > obstacle.right()
         );
-      }
     }
+  }
   
     function checkGameOver() {
         let crashed = myObstacles.some(function(obstacle) {
@@ -110,15 +114,17 @@ let myGameArea = {
         player.speedY += 1;
         break;
       case 37: // left arrow
-        player.speedX -= 1;
+        player.speedX = -5;
         break;
       case 39: // right arrow
-        player.speedX += 1;
+        player.speedX = 5;
         break;
     }
   };
 
+
   function updateObstacles() {
+   
     for (i = 0; i < myObstacles.length; i++) {
         myObstacles[i].y += 3;
         myObstacles[i].update();
@@ -162,8 +168,24 @@ let myGameArea = {
     player.renderPlayer();
     updateObstacles();
     checkGameOver();
+    console.log(typeof myGameArea.score);
     myGameArea.score();
   };
 
-myGameArea.start();
-let player = new Component(40, 40, "red", 350, 400);
+//myGameArea.start();
+let player = new Component(40, 40, "red", 350, 320);
+/*
+startBtn.begin = function() {
+  myGameArea.start();
+  let player = new Component(40, 40, "red", 350, 320);
+};
+
+document.getElementById("startBtn").begin();
+
+*/
+function begin() {
+  console.log("called")
+  myGameArea.start();
+  
+  //player; 
+}
