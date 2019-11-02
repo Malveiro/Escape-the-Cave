@@ -2,6 +2,7 @@ let myObstacles = [];
 
 let mySound;
 let myMusic;
+let waterSound;
 
 let startBtn = document.getElementById("startBtn");
 
@@ -109,6 +110,7 @@ let myGameArea = {
           mySound.play();
           myGameArea.stop();
           myMusic.stop();
+          waterSound.stop();
           let ctx = myGameArea.context;
           ctx.font = "58px Lucida Sans Unicode";
           ctx.fillStyle = "black";
@@ -146,7 +148,7 @@ let myGameArea = {
       }
 if (myGameArea.points < 100) {
     myGameArea.frames += 1;
-    if (myGameArea.frames % 70 === 0) {
+    if (myGameArea.frames % 75 === 0) {
       let x = myGameArea.canvas.width;
       let y = 0;
       let minWidth = 30;
@@ -171,7 +173,7 @@ if (myGameArea.points < 100) {
     }
   } else {
     myGameArea.frames += 1;
-    if (myGameArea.frames % 50 === 0) {
+    if (myGameArea.frames % 65 === 0) {
     let x = myGameArea.canvas.width;
       let y = 0;
       let minWidth = 30;
@@ -213,18 +215,14 @@ if (myGameArea.points < 100) {
   };
 
 //myGameArea.start();
-let player = new Component(40, 40, "red", 350, 320);
-/*
-startBtn.begin = function() {
-  myGameArea.start();
-  let player = new Component(40, 40, "red", 350, 320);
-};
-document.getElementById("startBtn").begin();
-*/
+let player = new Component(40, 40, "red", 350, 398);
+
 function begin() {
   mySound = new sound("./game_over_sound.wav");
   myMusic = new sound("background_music.wav");
   myMusic.play();
+  waterSound = new sound("waterSound.mp3");
+  waterSound.play();
   myGameArea.start();
 }
 
