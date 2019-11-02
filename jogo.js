@@ -108,6 +108,7 @@ let myGameArea = {
         if (crashed) {
           mySound.play();
           myGameArea.stop();
+          myMusic.stop();
           let ctx = myGameArea.context;
           ctx.font = "58px Lucida Sans Unicode";
           ctx.fillStyle = "black";
@@ -222,7 +223,8 @@ document.getElementById("startBtn").begin();
 */
 function begin() {
   mySound = new sound("./game_over_sound.wav");
-  
+  myMusic = new sound("background_music.wav");
+  myMusic.play();
   myGameArea.start();
 }
 
