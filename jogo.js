@@ -1,6 +1,7 @@
 let myObstacles = [];
 
 let mySound;
+let myMusic;
 
 let startBtn = document.getElementById("startBtn");
 
@@ -63,9 +64,12 @@ let myGameArea = {
 */
   
     update() {
+      let img = new Image();
       let ctx = myGameArea.context;
-      ctx.fillStyle = this.color;
-      ctx.fillRect(this.x, this.y, this.width, this.height);
+    //  ctx.fillStyle = this.color;
+    //  ctx.fillRect(this.x, this.y, this.width, this.height);
+     img.src = "stone1.png";    
+     ctx.drawImage(img, this.x, this.y, this.width, 100);
     }
 
     newPos() {
@@ -217,7 +221,8 @@ startBtn.begin = function() {
 document.getElementById("startBtn").begin();
 */
 function begin() {
-  mySound = new sound("./game_over_sound.wav")
+  mySound = new sound("./game_over_sound.wav");
+  
   myGameArea.start();
 }
 
