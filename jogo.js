@@ -13,7 +13,7 @@ let myGameArea = {
       this.canvas.classList.add('canvasBg');
       document.body.insertBefore(this.canvas, document.body.childNodes[0]);
       this.interval = setInterval(updateGameArea, 20);
-      
+      startBtn.style.display = "none";
     },
     clear: function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -25,7 +25,7 @@ let myGameArea = {
         this.points = Math.floor(this.frames / 5);
         this.context.font = "18px serif";
         this.context.fillStyle = "black";
-        this.context.fillText("Score: " + this.points, 350, 50);
+        this.context.fillText("Score: " + this.points, 330, 50);
         console.log(this.points);
     }
   }
@@ -101,6 +101,13 @@ let myGameArea = {
       
         if (crashed) {
           myGameArea.stop();
+          let ctx = myGameArea.context;
+          ctx.font = "58px Lucida Sans Unicode";
+          ctx.fillStyle = "black";
+          //ctx.fillText("You lost!", 250, 250);
+          let gameOver = new Image();
+          gameOver.src="./finito.png";
+          ctx.drawImage(gameOver,190,100, 350, 350);
         }
       }
   
@@ -129,7 +136,7 @@ let myGameArea = {
         myObstacles[i].y += 3;
         myObstacles[i].update();
       }
-
+if (myGameArea.points < 100) {
     myGameArea.frames += 1;
     if (myGameArea.frames % 70 === 0) {
       let x = myGameArea.canvas.width;
@@ -154,8 +161,33 @@ let myGameArea = {
         new Component(x-width-gap, 10, "green", width+gap, y)
         );
     }
+  } else {
+    myGameArea.frames += 1;
+    if (myGameArea.frames % 50 === 0) {
+    let x = myGameArea.canvas.width;
+      let y = 0;
+      let minWidth = 20;
+      let maxWidth = 200;
+      let randomGap = Math.floor(Math.random()*350)+1
+      let width = Math.floor(
+        Math.random() * (maxWidth - minWidth + 1) + minWidth+randomGap
+      );
+      let minGap = 70;
+      let maxGap = 150;
+      let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+      /*
+      let obs = new Image();
+      obs.src = "./rock.jpg";
+      ctx.drawImage(obs, 0, y, width, 10);
+      ctx.drawImage(obs, width+gap, y, x-width-gap, 10);
+      */
+      myObstacles.push(new Component(width, 10, "green", 0, y));
+      myObstacles.push(
+        new Component(x-width-gap, 10, "green", width+gap, y)
+        );
   }
-
+  }
+  }
 
   document.onkeyup = function(e) {
     player.speedX = 0;
@@ -179,13 +211,14 @@ startBtn.begin = function() {
   myGameArea.start();
   let player = new Component(40, 40, "red", 350, 320);
 };
-
 document.getElementById("startBtn").begin();
-
 */
 function begin() {
-  console.log("called")
+  console.log("called");
   myGameArea.start();
-  
-  //player; 
 }
+
+let ctx = myGameArea.context;
+let gameOver = new Image();
+gameOver.src="./finito.png";
+ctx.drawImage(gameOver,100,50, 100, 100);

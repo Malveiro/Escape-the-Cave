@@ -7,7 +7,6 @@ body {
     background-repeat: no-repeat;
     background-position: 10px 10px;
 }
-
 .waves {
     height: 380px;
     width: 700px;
@@ -24,35 +23,35 @@ body {
 */
 
 body {
-border: 2px solid black;
-width: 700px;
-background-image: url("./cave.jpg");
-background-size: 700px 505px;
-background-repeat: no-repeat;
-background-position: 10px 10px;
-}
-
-.waves {
-    height: 380px;
+    border: 2px solid black;
     width: 700px;
-    position: relative;
-    top: -300px;
-    background-repeat: repeat-x;
-    animation: animatedImage 5s linear infinite;
+    background-image: url("./cave.jpg");
+    background-size: 700px 505px;
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
     }
-
-/*
-@keyframes animatedImage {
-    0% { left: 0;}
-    50%{ left : 100%;}
-    100%{ left: 0;}
-}
-*/
-
-#startBtn {
-    position: absolute;
-    top: 250px;
-    left: 200px;
-    width: 100px;
-    height: 50px;
-}
+    
+    .waves {
+        height: 380px;
+        width: 700px;
+        position: relative;
+        top: -300px;
+        background-repeat: repeat-x;
+        animation: animatedImage 5s linear infinite;
+        }
+    
+    /*
+    @keyframes animatedImage {
+        0% { left: 0;}
+        50%{ left : 100%;}
+        100%{ left: 0;}
+    }
+    */
+    
+    #startBtn {
+        position: absolute;
+        top: 250px;
+        left: 200px;
+        width: 100px;
+        height: 50px;
+    }

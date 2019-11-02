@@ -1,4 +1,4 @@
-
+/*
 let img = new Image();
 img.src = './ondas.png';
 
@@ -39,3 +39,4 @@ function updateCanvas() {
 // start calling updateCanvas once the image is loaded
 img.onload = updateCanvas;
 
+*/
