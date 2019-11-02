@@ -1,5 +1,7 @@
 let myObstacles = [];
 
+let mySound;
+
 let startBtn = document.getElementById("startBtn");
 
 let myGameArea = {
@@ -100,6 +102,7 @@ let myGameArea = {
         });
       
         if (crashed) {
+          mySound.play();
           myGameArea.stop();
           let ctx = myGameArea.context;
           ctx.font = "58px Lucida Sans Unicode";
@@ -214,7 +217,7 @@ startBtn.begin = function() {
 document.getElementById("startBtn").begin();
 */
 function begin() {
-  console.log("called");
+  mySound = new sound("./game_over_sound.wav")
   myGameArea.start();
 }
 
