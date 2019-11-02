@@ -1,4 +1,7 @@
-let myObstacles = [];
+
+
+
+let myObstacles;
 
 let mySound;
 let myMusic;
@@ -6,35 +9,7 @@ let waterSound;
 
 let startBtn = document.getElementById("startBtn");
 
-let myGameArea = {
-    canvas: document.createElement("canvas"),
-    frames: 0,
-    start: function() {
-      this.canvas.width = 700;
-      this.canvas.height = 500;
-      this.points = 0;
-      this.context = this.canvas.getContext("2d");
-      this.canvas.classList.add('canvasBg');
-      document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-      this.interval = setInterval(updateGameArea, 20);
-      startBtn.style.display = "none";
-      this.gameOver = new Image();
-      this.gameOver.src="./finito.png";
-    },
-    clear: function() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    },
-    stop: function() {
-      clearInterval(this.interval); 
-    },
-    score: function() {
-        this.points = Math.floor(this.frames / 5);
-        this.context.font = "18px serif";
-        this.context.fillStyle = "black";
-        this.context.fillText("Score: " + this.points, 330, 50);
-        console.log(this.points);
-    },
-  }
+let myGameArea;
 
 
   class Component {
@@ -109,6 +84,7 @@ let myGameArea = {
           myGameArea.stop();
           myMusic.stop();
           waterSound.stop();
+          document.getElementById("gameOver").style.display = "block";
         }
       }
   
@@ -196,6 +172,39 @@ let myGameArea = {
 let player = new Component(40, 40, "red", 350, 398);
 
 function begin() {
+  document.getElementById("gameOver").style.display = "none";
+  document.getElementsByClassName("waves")[0].style.display = "block";
+
+  myObstacles = [];
+  myGameArea = {
+    frames: 0,
+    start: function() {
+      this.canvas = document.getElementById("canvas");
+      this.canvas.width = 700;
+      this.canvas.height = 500;
+      this.points = 0;
+      this.context = this.canvas.getContext("2d");
+      this.canvas.classList.add('canvasBg');
+      document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+      this.interval = setInterval(updateGameArea, 20);
+      startBtn.style.display = "none";
+      this.gameOver = new Image();
+      this.gameOver.src="./finito.png";
+    },
+    clear: function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop: function() {
+      clearInterval(this.interval); 
+    },
+    score: function() {
+        this.points = Math.floor(this.frames / 5);
+        this.context.font = "18px serif";
+        this.context.fillStyle = "black";
+        this.context.fillText("Score: " + this.points, 330, 50);
+        console.log(this.points);
+    },
+  }
   mySound = new sound("./game_over_sound.wav");
   myMusic = new sound("background_music.wav");
   myMusic.loop = true;
