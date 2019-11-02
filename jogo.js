@@ -148,13 +148,13 @@ if (myGameArea.points < 100) {
     if (myGameArea.frames % 70 === 0) {
       let x = myGameArea.canvas.width;
       let y = 0;
-      let minWidth = 20;
+      let minWidth = 30;
       let maxWidth = 200;
       let randomGap = Math.floor(Math.random()*350)+1
       let width = Math.floor(
         Math.random() * (maxWidth - minWidth + 1) + minWidth+randomGap
       );
-      let minGap = 70;
+      let minGap = 80;
       let maxGap = 150;
       let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
       /*
@@ -173,13 +173,13 @@ if (myGameArea.points < 100) {
     if (myGameArea.frames % 50 === 0) {
     let x = myGameArea.canvas.width;
       let y = 0;
-      let minWidth = 20;
+      let minWidth = 30;
       let maxWidth = 200;
       let randomGap = Math.floor(Math.random()*350)+1
       let width = Math.floor(
         Math.random() * (maxWidth - minWidth + 1) + minWidth+randomGap
       );
-      let minGap = 70;
+      let minGap = 80;
       let maxGap = 150;
       let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
       /*
