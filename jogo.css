@@ -1,6 +1,7 @@
 body {
     border: 2px solid black;
     width: 700px;
+    height: 505px;
     background-image: url("./cave.jpg");
     background-size: 700px 505px;
     background-repeat: no-repeat;
@@ -13,9 +14,25 @@ body {
         position: relative;
         top: -300px;
         background-repeat: repeat-x;
-        animation: animatedImage 5s linear infinite;
         }
     
+
+.waves {
+    background: url(./ondas.png)
+    0% 80%;
+  background-size: 40vw auto;
+  animation: moves 9s infinite linear;
+  min-height: 30vh;
+  margin: 0;
+  position: relative;
+  display: flex;
+}
+@keyframes moves {
+  to {
+    background-position: -100vw 80%;
+  }
+}
+
     /*
     @keyframes animatedImage {
         0% { left: 0;}

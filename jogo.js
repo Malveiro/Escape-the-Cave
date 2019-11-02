@@ -45,10 +45,7 @@ let myGameArea = {
       this.x = x;
       this.y = y;
       this.speedX = 0;
-      this.speedY = 0;
-      //this.obsHeight = obsHeight;
-      // this.obsWidth = obsWidth;
-      
+      this.speedY = 0; 
     }
 
     renderPlayer() {
@@ -57,15 +54,7 @@ let myGameArea = {
       let ctx = myGameArea.context;
       ctx.drawImage(img, this.x, this.y, 50, 70);
     }
-/*
-    renderObs() {
-      let img = new Image();
-      img.src = "./stone1.png";
-      let ctx = myGameArea.context;
-      ctx.drawImage(img, this.x, this.y, 250, 100); 
-    }
-*/
-  
+
     update() {
       let img = new Image();
       let ctx = myGameArea.context;
@@ -163,12 +152,6 @@ let myGameArea = {
           let minGap = 80;
           let maxGap = 150;
           let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
-          /*
-          let obs = new Image();
-          obs.src = "./rock.jpg";
-          ctx.drawImage(obs, 0, y, width, 10);
-          ctx.drawImage(obs, width+gap, y, x-width-gap, 10);
-          */
           myObstacles.push(new Component(width, 10, "green", 0, y));
           myObstacles.push(
             new Component(x-width-gap, 10, "green", width+gap, y)
@@ -188,12 +171,6 @@ let myGameArea = {
             let minGap = 80;
             let maxGap = 150;
             let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
-            /*
-            let obs = new Image();
-            obs.src = "./rock.jpg";
-            ctx.drawImage(obs, 0, y, width, 10);
-            ctx.drawImage(obs, width+gap, y, x-width-gap, 10);
-            */
             myObstacles.push(new Component(width, 10, "green", 0, y));
             myObstacles.push(
               new Component(x-width-gap, 10, "green", width+gap, y)
@@ -216,7 +193,6 @@ let myGameArea = {
     myGameArea.score();
   };
 
-//myGameArea.start();
 let player = new Component(40, 40, "red", 350, 398);
 
 function begin() {
@@ -229,10 +205,3 @@ function begin() {
   waterSound.play();
   myGameArea.start();
 }
-/*
-console.log("end of file")
-let ctx = myGameArea.context;
-let gameOver = new Image();
-gameOver.src="./finito.png";
-ctx.drawImage(gameOver,100,50, 100, 100);
-*/
