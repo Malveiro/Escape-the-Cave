@@ -1,6 +1,3 @@
-
-
-
 let myObstacles;
 
 let mySound;
@@ -25,7 +22,7 @@ let myGameArea;
 
     renderPlayer() {
       let img = new Image();
-      img.src = "./imagens/Run__001.png";
+      img.src = "./images/Run__001.png";
       let ctx = myGameArea.context;
       ctx.drawImage(img, this.x, this.y, 50, 70);
     }
@@ -35,7 +32,7 @@ let myGameArea;
       let ctx = myGameArea.context;
     //  ctx.fillStyle = this.color;
     //  ctx.fillRect(this.x, this.y, this.width, this.height);
-     img.src = "stone1.png";    
+     img.src = "./images/stone1.png";    
      ctx.drawImage(img, this.x, this.y, this.width, 100);
     }
 
@@ -169,7 +166,7 @@ let myGameArea;
     myGameArea.score();
   };
 
-let player = new Component(40, 40, "red", 350, 398);
+let player = new Component(40, 40, "red", 350, 350);
 
 function begin() {
   document.getElementById("gameOver").style.display = "none";
@@ -189,7 +186,7 @@ function begin() {
       this.interval = setInterval(updateGameArea, 20);
       startBtn.style.display = "none";
       this.gameOver = new Image();
-      this.gameOver.src="./finito.png";
+      this.gameOver.src="./images/finito.png";
     },
     clear: function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -205,12 +202,12 @@ function begin() {
         console.log(this.points);
     },
   }
-  mySound = new sound("./game_over_sound.wav");
-  myMusic = new sound("background_music.wav");
+  mySound = new sound("./sound/game_over_sound.wav");
+  myMusic = new sound("./sound/background_music.wav");
   myMusic.loop = true;
   myMusic.play();
   console.log(myMusic)
-  waterSound = new sound("waterSound.mp3");
+  waterSound = new sound("./sound/waterSound.mp3");
   waterSound.play();
   myGameArea.start();
 }
