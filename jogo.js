@@ -113,7 +113,7 @@ let myGameArea;
 
     if (myGameArea.points < 100) {
         myGameArea.frames += 1;
-        if (myGameArea.frames % 70 === 0) {
+        if (myGameArea.frames % 69 === 0) {
           let x = myGameArea.canvas.width;
           let y = 0;
           let minWidth = 30;
@@ -132,7 +132,7 @@ let myGameArea;
         }
       } else {
         myGameArea.frames += 1;
-          if (myGameArea.frames % 60 === 0) {
+          if (myGameArea.frames % 59 === 0) {
           let x = myGameArea.canvas.width;
             let y = 0;
             let minWidth = 30;
@@ -166,7 +166,7 @@ let myGameArea;
     myGameArea.score();
   };
 
-let player = new Component(40, 40, "red", 350, 350);
+let player = new Component(40, 40, "red", 350, 325);
 
 function begin() {
   document.getElementById("gameOver").style.display = "none";

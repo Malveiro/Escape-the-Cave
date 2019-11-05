@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./jogo.css">
   </head>
   <body>
-  
+  <div class="elements">
     <div id="gameOver" class="game-over" style="display: none;">
         <button type="button" id="tryAgain" onclick="begin()">Try Again</button>
   
@@ -18,7 +18,11 @@
   <button type="button" id="startBtn" onclick="begin()">Play the game!</button> 
   <div id="img">
   <img src="./images/Logo.png">
+</div>
+
   </div>
+
+  <div class="border" style="display: block;"></div>
      <canvas id="canvas" width="700" height="500"></canvas>
       <script src="./jogo.js"></script>
       <script src="./sound.js"></script>

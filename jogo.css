@@ -1,11 +1,10 @@
 body {
-    border: 2px solid black;
     width: 700px;
     height: 505px;
     background-image: url("./images/cave.jpg");
     background-size: 700px 505px;
     background-repeat: no-repeat;
-    background-position: 10px 10px;
+    background-position: center;
     }
 
 .game-over {
@@ -13,7 +12,11 @@ body {
     top: 100px;
 }
 
-   
+#canvas {
+  margin-left: 315px;
+  
+}
+
 .waves {
     background: url(./images/ondas.png) 0% 80%;
     background-size: 50vw auto;
@@ -37,7 +40,7 @@ body {
 #startBtn {
         position: absolute;
         top: 250px;
-        left: 230px;
+        left: 550px;
         width: 240px;
         height: 50px;
 }
@@ -97,6 +100,8 @@ body {
 	background-color:#476e9e;
 }
 
-
+.elements {
+  margin-left: 315px;  
+}
 
         
