@@ -16,7 +16,7 @@ body {
    
 .waves {
     background: url(./images/ondas.png) 0% 80%;
-    background-size: 80vw auto;
+    background-size: 50vw auto;
     animation: moves 6s infinite linear;
     min-height: 35vh;
     margin: 0;
@@ -24,7 +24,7 @@ body {
     display: flex;
     height: 224px;
     width: 700px;
-    top: -220px;
+    top: -230px;
     opacity: 0.85;
 }
 

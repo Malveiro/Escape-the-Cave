@@ -113,7 +113,7 @@ let myGameArea;
 
     if (myGameArea.points < 100) {
         myGameArea.frames += 1;
-        if (myGameArea.frames % 75 === 0) {
+        if (myGameArea.frames % 70 === 0) {
           let x = myGameArea.canvas.width;
           let y = 0;
           let minWidth = 30;
