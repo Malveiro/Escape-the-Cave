@@ -72,7 +72,7 @@ let myGameArea;
         if (crashed) {
 
           let ctx = myGameArea.context;
-          ctx.font = "58px Lucida Sans Unicode";
+          ctx.font = "8px Lucida Sans Unicode";
           ctx.fillStyle = "black";
           //ctx.fillText("You lost!", 250, 250);
           
@@ -170,6 +170,7 @@ let player = new Component(40, 40, "red", 350, 350);
 
 function begin() {
   document.getElementById("gameOver").style.display = "none";
+  document.getElementById("img").style.display = "none";
   document.getElementsByClassName("waves")[0].style.display = "block";
 
   myObstacles = [];

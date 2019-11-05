@@ -62,7 +62,7 @@ body {
 	background-color:#476e9e;
 }
 
-.img {
+#img {
   margin-top: 60px;
   margin-left: 40px;
 }
@@ -70,9 +70,10 @@ body {
 
 #tryAgain {
   position: absolute;
-  top: 250px;
+  top: 10px;
+  margin-left: 50px;
   left: 230px;
-  width: 100px;
+  width: 180px;
   height: 50px;
 }
 
